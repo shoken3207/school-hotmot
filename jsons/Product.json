@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "梅おろし豚しゃぶ弁当",
+    "price": 590,
+    "listImage": "https://netorder.hottomotto.com/pc/images/products/13154/13154_pc_list.jpg",
+    "detailImage": "https://netorder.hottomotto.com/pc/images/products/13154/13154_pc_detail.jpg",
+    "desc": "あっさりと柔らかい豚しゃぶに、みずみずしい大根おろしと上品でやわらかな酸味の紀州南高梅のペーストを合わた、蒸し暑くなる季節にぴったりの一品。<br>付け合わせには、オクラと茄子を添えました。<br>５種（ゆず・すだち・かぼす・だいだい・レモン）の柑橘果汁が爽やかなぽん酢をかけてお召し上がりください。",
+    "riceGroupId": 1,
+    "productCategoryId": 1
+  },
+  {
+    "id": 2,
+    "name": "カルビ焼肉＆から揚弁当",
+    "price": 820,
+    "listImage": "https://netorder.hottomotto.com/pc/images/products/13149/13149_pc_list.jpg",
+    "detailImage": "https://netorder.hottomotto.com/pc/images/products/13149/13149_pc_detail.jpg",
+    "desc": "人気のカルビ焼肉１人前に、から揚３個をプラスした「肉×肉」の２つの美味しさを味わえるメニューです。",
+    "riceGroupId": 1,
+    "productCategoryId": 1
+  },
+  {
+    "id": 3,
+    "name": "のり弁当",
+    "price": 380,
+    "listImage": "https://netorder.hottomotto.com/pc/images/products/12412/12412_pc_list.jpg",
+    "detailImage": "https://netorder.hottomotto.com/pc/images/products/12412/12412_pc_detail.jpg",
+    "desc": "ごはんの上におかか昆布とのりをのせ、衣はサクサク、身はホクホクの白身魚のフライと食べ応えたっぷりのちくわ天を盛り付けました。",
+    "riceGroupId": 2,
+    "productCategoryId": 2
+  },
+  {
+    "id": 4,
+    "name": "ドラえもんランチ｜ふりかけ",
+    "price": 490,
+    "listImage": "https://netorder.hottomotto.com/pc/images/products/11416/11416_pc_list.jpg",
+    "detailImage": "https://netorder.hottomotto.com/pc/images/products/11416/11416_pc_detail.jpg",
+    "desc": "子供がお弁当に入っていると嬉しいおかずを揃えました。7大アレルゲン原材料不使用のプリンも入ってます。",
+    "riceGroupId": 4,
+    "productCategoryId": 2
+  },
+  {
+    "id": 5,
+    "name": "チキン南蛮｜おかずのみ",
+    "price": 420,
+    "listImage": "https://netorder.hottomotto.com/pc/images/products/12444/12444_pc_list.jpg",
+    "detailImage": "https://netorder.hottomotto.com/pc/images/products/12444/12444_pc_detail.jpg",
+    "desc": "鶏の胸肉に衣をつけて揚げたチキン南蛮は、外はカリッと中はふんわり。リニューアルに伴い、増量したゆで卵と玉葱、ピクルスの食感を生かした、食べ応えのあるタルタルソースをたっぷりとかけました。別添の甘酢ソース小袋を、チキン南蛮に馴染ませるようにかけ、タルタルソースとのハーモニーをお楽しみください。",
+    "riceGroupId": 5,
+    "productCategoryId": 3
+  },
+  {
+    "id": 6,
+    "name": "ロースとんかつ｜おかずのみ",
+    "price": 420,
+    "listImage": "https://netorder.hottomotto.com/pc/images/products/12449/12449_pc_list.jpg",
+    "detailImage": "https://netorder.hottomotto.com/pc/images/products/12449/12449_pc_detail.jpg",
+    "desc": "サクサクに揚げたとんかつをフルーティーな味わいのソースでお楽しみください。",
+    "riceGroupId": 5,
+    "productCategoryId": 3
+  },
+  {
+    "id": 7,
+    "name": "フライドポテト",
+    "price": 160,
+    "listImage": "https://netorder.hottomotto.com/pc/images/products/12194/12194_pc_list.jpg",
+    "detailImage": "https://netorder.hottomotto.com/pc/images/products/12194/12194_pc_detail.jpg",
+    "desc": "160円お手軽メニュー。お弁当と一緒にどうぞ。",
+    "riceGroupId": 5,
+    "productCategoryId": 4
+  },
+  {
+    "id": 8,
+    "name": "ミックスサラダ｜和風ドレッシング",
+    "price": 150,
+    "listImage": "https://netorder.hottomotto.com/pc/images/products/11134/11134_pc_list.jpg",
+    "detailImage": "https://netorder.hottomotto.com/pc/images/products/11134/11134_pc_detail.jpg",
+    "desc": "お弁当にプラスするだけで、手軽に野菜が摂れます。",
+    "riceGroupId": 5,
+    "productCategoryId": 4
+  }
+]

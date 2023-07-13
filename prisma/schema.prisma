@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name String?
+  isAdmin Boolean
+  bookMarks BookMark[]
+  cart Cart?
+  orders Order[]
+  createdAt DateTime @default(now())
+}
+
+model BookMark {
+  id    Int     @id @default(autoincrement())
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+  productId Int
+  categoryId Int?
+  createdAt DateTime @default(now())
+}
+
+model Cart {
+  id    Int     @id @default(autoincrement())
+  userId Int @unique
+  user User @relation(fields: [userId], references: [id])
+  shopId Int
+  cartDetails CartDetail[]
+  createdAt DateTime @default(now())
+}
+
+model CartDetail {
+  id    Int     @id @default(autoincrement())
+  cartId Int
+  cart Cart @relation(fields: [cartId], references: [id])
+  productId Int
+  riceId Int
+  quantity Int
+  createdAt DateTime @default(now())
+}
+
+model Order {
+  id    Int     @id @default(autoincrement())
+  userId Int @unique
+  user User @relation(fields: [userId], references: [id])
+  shopId Int
+  orderDetails OrderDetail[]
+  createdAt DateTime @default(now())
+}
+
+model OrderDetail {
+  id    Int     @id @default(autoincrement())
+  orderId Int
+  order Order @relation(fields: [orderId], references: [id])
+  productId Int
+  riceId Int
+  quantity Int
+  createdAt DateTime @default(now())
+}

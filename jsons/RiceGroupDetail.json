@@ -1,0 +1,13 @@
+[
+  { "id": 1, "riceGroupId": 1, "riceId": 1 },
+  { "id": 2, "riceGroupId": 1, "riceId": 2 },
+  { "id": 3, "riceGroupId": 1, "riceId": 3 },
+  { "id": 4, "riceGroupId": 1, "riceId": 4 },
+  { "id": 5, "riceGroupId": 1, "riceId": 5 },
+  { "id": 6, "riceGroupId": 1, "riceId": 6 },
+  { "id": 7, "riceGroupId": 1, "riceId": 7 },
+  { "id": 8, "riceGroupId": 2, "riceId": 1 },
+  { "id": 9, "riceGroupId": 2, "riceId": 2 },
+  { "id": 10, "riceGroupId": 3, "riceId": 4 },
+  { "id": 11, "riceGroupId": 4, "riceId": 1 }
+]
