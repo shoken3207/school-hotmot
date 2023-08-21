@@ -40,6 +40,7 @@ const fetchCategoryBookMarksByUserId = async (args: {
 const createBookMark = async (args: {
   userId: number;
   productId: number;
+  categoryId: number;
 }): Promise<void> => {
   await prisma.bookMark.create({ data: args });
 };

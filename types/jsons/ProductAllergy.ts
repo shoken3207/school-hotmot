@@ -1,5 +1,5 @@
 export type ProductAllergy = {
-  ie: number;
+  id: number;
   productId: number;
   allergyId: number;
 };

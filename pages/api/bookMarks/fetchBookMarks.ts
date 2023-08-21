@@ -5,18 +5,20 @@ import {
   fetchBookMarksByUserId,
   fetchCategoryBookMarksByUserId,
 } from '../../../services/bookMarkService';
+import { PRODUCT_CATEGORIES } from '../../../const';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+  console.log('called');
   try {
     const { userId, categoryId } = req.query as FetchBookMarksRequest;
-    console.log('userId: ', userId);
+    console.log('userId: ', userId, categoryId);
     const parseUserId = parseInt(userId);
 
     if (!parseUserId)
       return res.status(404).json({ message: 'パラメータに異常があります。' });
 
     let bookMarks;
-    if (categoryId) {
+    if (categoryId && parseInt(categoryId) !== PRODUCT_CATEGORIES.ALL) {
       const parseCategoryId = parseInt(categoryId);
       bookMarks = await fetchCategoryBookMarksByUserId({
         userId: parseUserId,

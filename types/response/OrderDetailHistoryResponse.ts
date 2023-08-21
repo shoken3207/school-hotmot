@@ -6,4 +6,5 @@ export type OrderDetailHistoryResponse = {
   productImage: string;
   quantity: number;
   createdAt: Date;
+  price: number;
 };

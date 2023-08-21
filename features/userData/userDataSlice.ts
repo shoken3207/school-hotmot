@@ -1,14 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { InitialUser } from '../../types/user/InitialUser';
-import { ResponseUser } from '../../types/user/ResponseUser';
+import { UserResponse } from '../../types/response/UserResponse';
+import { InitialType } from '../../types/redux/userData/InitialType';
 
-const initialState: ResponseUser | InitialUser = {
+const initialState: UserResponse | InitialType = {
   id: undefined,
   email: undefined,
-  username: undefined,
-  iconImage: undefined,
-  createdAt: null,
-  friends: [],
+  name: undefined,
+  bookMarks: [],
+  orderHistories: [],
+  cart: undefined,
+  createdAt: undefined,
 };
 
 export const userDataSlice = createSlice({
@@ -16,21 +17,22 @@ export const userDataSlice = createSlice({
   initialState,
   reducers: {
     login: (
-      state: ResponseUser | InitialUser,
-      action: { payload: ResponseUser }
-    ): ResponseUser => {
+      state: UserResponse | InitialType,
+      action: { payload: UserResponse }
+    ): UserResponse => {
       const newState = { ...state, ...action.payload };
       sessionStorage.setItem('user', JSON.stringify(newState));
       return newState;
     },
-    logout: (state: ResponseUser | InitialUser): InitialUser => {
+    logout: (state: UserResponse | InitialType): InitialType => {
       const newState = {
         id: undefined,
         email: undefined,
-        username: undefined,
-        iconImage: undefined,
-        friends: [],
-        createdAt: null,
+        name: undefined,
+        bookMarks: [],
+        orderHistories: [],
+        cart: undefined,
+        createdAt: undefined,
       };
       sessionStorage.setItem('user', JSON.stringify(newState));
       return newState;

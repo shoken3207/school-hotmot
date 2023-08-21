@@ -3,7 +3,7 @@ export type BookMarkResponse = {
   userId: number;
   productId: number;
   productName: string;
-  riceName: string;
   productImage: string;
+  categoryId: number;
   createdAt: Date;
 };

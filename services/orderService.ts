@@ -11,6 +11,7 @@ const fetchOrderById = async (id: number): Promise<Order | null> => {
 const fetchOrdersByUserId = async (userId: number): Promise<Order[]> => {
   const orders: Order[] = await prisma.order.findMany({
     where: { userId },
+    orderBy: { createdAt: 'desc' },
   });
   return orders;
 };
@@ -19,7 +20,9 @@ const createOrder = async (args: {
   userId: number;
   shopId: number;
 }): Promise<Order> => {
-  const order: Order = await prisma.order.create({ data: args });
+  const order: Order = await prisma.order.create({
+    data: { ...args },
+  });
   return order;
 };
 

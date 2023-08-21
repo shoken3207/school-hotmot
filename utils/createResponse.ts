@@ -1,6 +1,5 @@
 import { User } from '../types/model/User';
 import { UserResponse } from '../types/response/UserResponse';
-import { UsersResponse } from '../types/response/UsersResponse';
 import { CartDetail } from '../types/model/CartDetail';
 import { CartDetailResponse } from '../types/response/CartDetailResponse';
 import { Cart } from '../types/model/Cart';
@@ -11,14 +10,8 @@ import { BookMark } from '../types/model/BookMark';
 import { BookMarkResponse } from '../types/response/BookMarkResponse';
 import { Order } from '../types/model/Order';
 import { OrderDetail } from '../types/model/OrderDetail';
-import AllergyData from '../jsons/Allergy.json';
 import ProductData from '../jsons/Product.json';
-import ProductAllergyData from '../jsons/ProductAllergy.json';
-import ProductCategoryData from '../jsons/ProductCategory.json';
 import RiceData from '../jsons/Rice.json';
-import RiceGroupData from '../jsons/RiceGroup.json';
-import RiceGroupDetailData from '../jsons/RiceGroupDetail.json';
-import ShopData from '../jsons/Shop.json';
 import { Product } from '../types/jsons/Product';
 import { Rice } from '../types/jsons/Rice';
 import { fetchOrderDetailsByOrderId } from '../services/orderDetailService';
@@ -88,7 +81,7 @@ const createCartDetailsResponse = async (
           productName,
           productId,
           productImage,
-          price,
+          price: price + rice.price,
           riceName,
           quantity,
           createdAt,
@@ -135,7 +128,7 @@ const createOrderDetailHistoriesResponse = async (
           productName,
           productId,
           productImage,
-          price,
+          price: price + rice.price,
           riceName,
           quantity,
           createdAt,
@@ -160,7 +153,13 @@ const createOrderHistoriesResponse = async (
       const orderDetailHistories: OrderDetailHistoryResponse[] =
         await createOrderDetailHistoriesResponse(orderDetails);
 
-      return { id, shopId, userId, createdAt, details: orderDetailHistories };
+      return {
+        id,
+        shopId,
+        userId,
+        createdAt,
+        details: orderDetailHistories,
+      };
     })
   );
 
@@ -171,20 +170,18 @@ const createBookMarksResponse = async (
   bookMarks: BookMark[]
 ): Promise<BookMarkResponse[]> => {
   const productData: Product[] = ProductData;
-  const riceData: Rice[] = RiceData;
 
   const bookMarksResponse: Array<BookMarkResponse | undefined> =
     await Promise.all(
       bookMarks.map(async (bookMark) => {
         const product = productData.find(({ id }) => id === bookMark.productId);
-        const rice = riceData.find(({ id }) => id === bookMark.productId);
-        if (product && rice) {
+        if (product) {
           const {
             name: productName,
             listImage: productImage,
             id: productId,
+            productCategoryId,
           } = product;
-          const { name: riceName } = rice;
           const { id, userId, createdAt } = bookMark;
           return {
             id,
@@ -192,7 +189,7 @@ const createBookMarksResponse = async (
             productId,
             productName,
             productImage,
-            riceName,
+            categoryId: productCategoryId,
             createdAt,
           };
         }

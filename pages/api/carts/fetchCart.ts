@@ -21,6 +21,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         .json({ message: 'あなたのカートではありません。' });
 
     const responseCart = await createCartResponse(cart);
+    if (responseCart.details.length === 0)
+      return res
+        .status(404)
+        .json({ message: 'カートに商品が追加されていません。' });
+
     res.status(200).json({ cart: responseCart, message: '' });
   } catch (err) {
     return res.status(500).json({ err });

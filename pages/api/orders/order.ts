@@ -30,7 +30,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res
         .status(404)
         .json({ message: 'カートに商品が追加されていません。' });
-
     const order = await createOrder({
       userId: cart.userId,
       shopId: cart.shopId,

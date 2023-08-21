@@ -9,9 +9,9 @@ import { BookMark } from '../../../types/model/BookMark';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { userId, productId }: AddBookMarkRequest = req.body;
+    const { userId, productId, categoryId }: AddBookMarkRequest = req.body;
 
-    if (!userId || !productId)
+    if (!userId || !productId || !categoryId)
       return res.status(404).json({ message: 'パラメータに異常があります。' });
 
     const bookMark: BookMark | null = await fetchBookMark(req.body);
@@ -19,7 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(404).json({ message: 'お気に入りに登録済みです。' });
 
     await createBookMark(req.body);
-    res.status(200).json({ message: 'お気に入りに登録しました。' });
+    res.status(200).json({ message: '' });
   } catch (err) {
     return res.status(500).json({ err });
   }

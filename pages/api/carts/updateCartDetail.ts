@@ -9,24 +9,42 @@ import { UpdateCartDetailRequest } from '../../../types/requests/UpdateCartDetai
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { cartDetailId, quantity }: UpdateCartDetailRequest = req.body;
+    const updateCartDetailRequests: UpdateCartDetailRequest[] = req.body;
 
-    if (!cartDetailId || quantity < 0)
+    if (updateCartDetailRequests.length === 0)
+      return res
+        .status(404)
+        .json({ message: 'カート内容への変更がありません。' });
+
+    if (
+      updateCartDetailRequests.some(
+        ({ cartDetailId, quantity }) => !cartDetailId || quantity < 0
+      )
+    )
       return res.status(404).json({ message: 'パラメータに異常があります。' });
 
-    const cartDetail: CartDetail | null = await fetchCartDetailById(
-      cartDetailId
-    );
+    for (const request of updateCartDetailRequests as {
+      cartDetailId: number;
+      quantity: number;
+    }[]) {
+      const { cartDetailId, quantity } = request;
 
-    if (!cartDetail)
-      return res.status(404).json({ message: 'カートに追加されていません。' });
+      const cartDetail: CartDetail | null = await fetchCartDetailById(
+        cartDetailId
+      );
 
-    if (quantity === 0) {
-      await deleteCartDetail({
-        id: cartDetail.id,
-      });
-    } else {
-      await updateCartDetail({ id: cartDetailId, quantity });
+      if (!cartDetail)
+        return res
+          .status(404)
+          .json({ message: 'カートに追加されていません。' });
+
+      if (quantity === 0) {
+        await deleteCartDetail({
+          id: cartDetail.id,
+        });
+      } else {
+        await updateCartDetail({ id: cartDetailId, quantity });
+      }
     }
 
     res.status(200).json({ message: 'カートを更新しました。' });

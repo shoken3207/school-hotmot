@@ -25,6 +25,7 @@ const fetchCartDetailsByCartId = async (
 ): Promise<CartDetail[]> => {
   const cartDetails: CartDetail[] = await prisma.cartDetail.findMany({
     where: { cartId },
+    orderBy: { productId: 'asc' },
   });
   return cartDetails;
 };
