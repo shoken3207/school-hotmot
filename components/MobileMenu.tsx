@@ -19,7 +19,7 @@ export default function MobileMenu({
 }) {
   const mobileMenuArray = [
     { text: 'ホーム', icon: <TabIcon />, path: '/Home' },
-    { text: 'ブックマーク', icon: <TabIcon />, path: '/test' },
+    { text: 'ブックマーク', icon: <TabIcon />, path: '/BookMark' },
     { text: 'カート', icon: <PersonAddIcon />, path: '/Cart' },
     { text: '注文履歴', icon: <PersonAddIcon />, path: '/OrderHistory' },
   ];

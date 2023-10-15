@@ -19,7 +19,7 @@ const OrderHistory = () => {
   return (
     <SOrderHistory>
       {orderHistories.map((orderHistory: OrderHistoryResponse) => (
-        <OrderHistoryBox orderHistory={orderHistory} />
+        <OrderHistoryBox key={orderHistory.id} orderHistory={orderHistory} />
       ))}
     </SOrderHistory>
   );

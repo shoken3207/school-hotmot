@@ -9,7 +9,7 @@ import { UserResponse } from '../types/response/UserResponse';
 import useFetchData from '../hooks/useFetchData';
 import { BookMarkResponse } from '../types/response/BookMarkResponse';
 
-const test = () => {
+const BookMark = () => {
   const user = useSelector(
     (state: RootState) => state.userData as UserResponse
   );
@@ -59,12 +59,11 @@ const test = () => {
   );
 };
 
-export default test;
+export default BookMark;
 
 const SWrap = styled.div`
   padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  column-gap: 3rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 `;
