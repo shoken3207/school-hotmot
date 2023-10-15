@@ -126,7 +126,7 @@ const ListProductBox = ({
           value={riceType}
         >
           {rices.map(({ id, name, price }) => (
-            <option value={id}>
+            <option value={id} key={id}>
               {name}　({price}円)
             </option>
           ))}

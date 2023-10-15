@@ -3,7 +3,6 @@ import { Button, IconButton } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Menu from '@mui/material/Menu';
 import CommonMenuItem from './CommonMenuItem';
-import { CommonMenuObject } from '../types/components/CommonMenuObject';
 
 const CommonMenu = ({
   iconSize = 'medium',
@@ -11,7 +10,7 @@ const CommonMenu = ({
   children,
 }: {
   iconSize?: 'large' | 'medium' | 'small';
-  menuArray: CommonMenuObject[];
+  menuArray: any;
   children?: ReactNode;
 }) => {
   const [anchorEl, setAnchorEl] = useState<any>(null);
@@ -57,7 +56,7 @@ const CommonMenu = ({
           horizontal: 'right',
         }}
       >
-        {menuArray.map((menuItem) => (
+        {menuArray.map((menuItem: any) => (
           <CommonMenuItem
             icon={menuItem.icon}
             text={menuItem.text}

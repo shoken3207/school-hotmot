@@ -69,6 +69,7 @@ const Cart = () => {
             quantity,
           }) => (
             <CartDetailBox
+              key={id}
               id={id}
               productId={productId}
               productImage={productImage}

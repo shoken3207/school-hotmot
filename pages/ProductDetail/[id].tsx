@@ -160,7 +160,7 @@ const ProductDetail = () => {
       {productData && productData?.rices.length > 0 ? (
         <SSelectContainer>
           {productData.rices.map(({ name, id }) => (
-            <div>
+            <div key={id}>
               <div key={id}>{name}</div>
               <SAddCountEl addCount={fetchQuantity(id)}>
                 <button

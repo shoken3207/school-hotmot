@@ -31,7 +31,7 @@ const Topbar = ({
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
   const user = useSelector((state: RootState) => state.userData);
-  const topBarRef = useRef(null);
+  const topBarRef = useRef<HTMLElement | null>(null);
   const router = useRouter();
   const dispatch = useDispatch();
   const basePath = router.pathname.split('/')[1];

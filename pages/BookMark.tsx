@@ -45,6 +45,7 @@ const BookMark = () => {
             categoryId,
           }) => (
             <BookMarkBox
+              key={id}
               id={id}
               productId={productId}
               productImage={productImage}

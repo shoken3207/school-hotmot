@@ -14,6 +14,7 @@ const OrderHistoryBox = ({
       <SOrderHistoryBody>
         {orderHistory.details.map(
           ({
+            id,
             productId,
             productImage,
             productName,
@@ -22,6 +23,7 @@ const OrderHistoryBox = ({
             riceName,
           }) => (
             <OrderDetailHistoryBox
+              key={id}
               productId={productId}
               productImage={productImage}
               productName={productName}
