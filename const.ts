@@ -2,6 +2,8 @@ export const POPUP_TYPE = {
   DISP_PROFILE: 1,
 };
 
+export const DEFAULT_SHOP_ID = 1;
+
 export const PRODUCT_CATEGORIES = {
   LIMITED_TIME: 1,
   BENTO: 2,

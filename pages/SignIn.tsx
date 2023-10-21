@@ -11,10 +11,13 @@ import { login } from '../features/userData/userDataSlice';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/main';
 import useUserFunc from '../hooks/useUser';
+import useCart from '../hooks/useCart';
+import { DEFAULT_SHOP_ID } from '../const';
 
 const SignIn = () => {
   const [signInInfo, setSignInInfo] = useState({ email: '', password: '' });
   const { registerUser } = useUserFunc();
+  const { addCart } = useCart();
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -44,6 +47,7 @@ const SignIn = () => {
           isAdmin: false,
         });
         if (success && user) {
+          await addCart({ shopId: DEFAULT_SHOP_ID, userId: user.id });
           sessionStorage.setItem('user', JSON.stringify(user));
           dispatch(login(user));
 
